@@ -1,0 +1,45 @@
+const winston = require('winston')
+
+const level = process.env.LOG_LEVEL || 'debug'
+
+const myFormat = winston.format.printf(
+  ({ lvl, message, timestamp }) => `${timestamp} ${lvl}: ${message}`
+)
+
+const logger = winston.createLogger({
+  format: winston.format.combine(winston.format.timestamp(), myFormat),
+  transports: [
+    new winston.transports.File({
+      filename: 'logs/combined.log',
+    }),
+    new winston.transports.File({
+      filename: 'logs/errors.log',
+      level: 'error',
+    }),
+    new winston.transports.File({
+      filename: 'logs/info.log',
+      level: 'info',
+    }),
+    new winston.transports.File({
+      filename: 'logs/debug.log',
+      level: 'debug',
+    }),
+  ],
+})
+
+// Write log to console when run on mode is not production
+if (process.env.NODE_ENV !== 'prd') {
+  logger.add(
+    new winston.transports.Console({
+      level,
+      timestamp() {
+        return new Date().toISOString()
+      },
+      format: winston.format.simple(),
+    })
+  )
+}
+
+const tracer = require('tracer').console()
+
+module.exports = tracer
