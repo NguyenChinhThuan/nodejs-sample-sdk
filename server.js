@@ -1,12 +1,12 @@
-const config = require("./src/config/index").DEFAULT;
+const Logger = require('./src/utils/logger')
+
+// connect mongodb
+Logger.debug('[Server] : connect mongodb')
+require('./src/config/mongodb')
 
 /**
  * Create HTTP server.
  */
 
-// connect mongodb
-console.log("connect mongodb");
-const mongodb = require("./src/config/mongodb");
-
-console.log("require app ");
-const app = require("./src/app");
+Logger.debug('[Server] : new instance app')
+require('./src/app')

@@ -1,8 +1,8 @@
-const express = require("express");
-const SampleAPI = require("../api/sample.api");
+const express = require('express')
+const SampleAPI = require('../api/sample.api')
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/", SampleAPI.all);
+router.get('/', SampleAPI.all)
 
-module.exports = router;
+module.exports = router

@@ -2,9 +2,7 @@ const winston = require('winston')
 
 const level = process.env.LOG_LEVEL || 'debug'
 
-const myFormat = winston.format.printf(
-  ({ lvl, message, timestamp }) => `${timestamp} ${lvl}: ${message}`
-)
+const myFormat = winston.format.printf(({ lvl, message, timestamp }) => `${timestamp} ${lvl}: ${message}`)
 
 const logger = winston.createLogger({
   format: winston.format.combine(winston.format.timestamp(), myFormat),

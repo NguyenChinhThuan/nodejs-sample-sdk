@@ -1,0 +1,58 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": ["prettier", "airbnb-base"],
+  "plugins": ["prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "semi": "off",
+    "prettier/prettier": "warn",
+    "object-curly-newline": "off",
+    "import/order": "warn",
+    "import/no-unresolved": "warn",
+    "import/no-dynamic-require": "warn",
+    "no-bitwise": "warn",
+    "no-console": "warn",
+    "comma-dangle": "off",
+    "no-lonely-if": "warn",
+    "prefer-destructuring": "off",
+    "valid-jsdoc": "off",
+    "object-shorthand": "warn",
+    "no-underscore-dangle": "off",
+    "indent": [0],
+    "func-names": [0],
+    "max-len": "off",
+    "no-unsafe-negation": "off",
+    "no-undef": "off",
+    "camelcase": "off",
+    "prefer-const": "warn",
+    "no-plusplus": "warn",
+    "no-await-in-loop": "off",
+    "radix": "off",
+    "prefer-promise-reject-errors": "warn",
+    "no-param-reassign": "warn",
+    "eqeqeq": "warn",
+    "consistent-return": "warn",
+    "no-nested-ternary": "warn",
+    "no-loop-func": "warn",
+    "no-restricted-syntax": "warn",
+    "no-use-before-define": "warn",
+    "new-cap": "warn",
+    "no-useless-catch": "warn",
+    "no-continue": "warn",
+    "guard-for-in": "warn",
+    "global-require": "warn",
+    "no-unused-vars": "warn",
+    "prefer-template": "warn",
+    "no-useless-concat": "warn",
+    "operator-linebreak": "off"
+  }
+}
