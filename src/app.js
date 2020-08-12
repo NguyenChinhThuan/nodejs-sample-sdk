@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 })
 
 // routers
-Logger.debug('[app.js] : init routers')
+// NOTES:
 require('./routers/index')(app)
 
 // catch 404 and forward to error handler
@@ -41,12 +41,11 @@ app.use((req, res, next) => {
   next()
 })
 
-// get config
-
 // name - port
 const port = CONFIG.PORT
 const nameService = CONFIG.SERVICE_NAME
 
+Logger.debug('[app.js]: creating serrver ... ')
 const server = http.createServer(app)
 server.listen(port, (error) => {
   if (error) {
@@ -58,7 +57,7 @@ server.listen(port, (error) => {
     } else {
       Logger.debug('[app.js]: Server running PRODUCTION.')
     }
-    Logger.debug(`[app.js] ${nameService} is running on port: ${port}`)
+    Logger.debug(`[app.js]: ${nameService} is running on port: ${port}`)
   }
 })
 
